@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class JwtUtil {
 
-    private String secret = "mysecretkey";
+    private String secret = "mysecretkeymysecretkeymysecretkey";
 
     public String generateToken(String username) {
         return Jwts.builder()
