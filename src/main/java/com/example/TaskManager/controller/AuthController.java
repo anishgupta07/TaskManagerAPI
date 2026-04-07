@@ -29,8 +29,10 @@ public class AuthController {
         return "User registered";
     }
 
+
     @PostMapping("/login")
     public String login(@RequestBody User user) {
+
         User dbUser = repo.findByUsername(user.getUsername())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
