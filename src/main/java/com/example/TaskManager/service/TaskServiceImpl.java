@@ -17,9 +17,15 @@ public class TaskServiceImpl implements TaskService{
     @Autowired
     private ModelMapper modelMapper;
 
-    @Override
-    public Task createTask(TaskDTO dto){
-        Task task = modelMapper.map(dto, Task.class);
+    public Task createTask(TaskDTO dto) {
+
+        Task task = new Task();
+
+        task.setTitle(dto.getTitle());
+        task.setDescription(dto.getDescription());
+        task.setDueTime(dto.getDueTime());
+        task.setStatus("PENDING");
+
         return repo.save(task);
     }
 
