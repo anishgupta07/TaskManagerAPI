@@ -10,10 +10,18 @@ services:
     env: docker
     plan: free
     envVars:
-      - key: SPRING_DATASOURCE_URL
+      - key: DB_HOST
         fromDatabase:
           name: taskmanager-db
-          property: connectionString
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: taskmanager-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: taskmanager-db
+          property: database
       - key: SPRING_DATASOURCE_USERNAME
         fromDatabase:
           name: taskmanager-db

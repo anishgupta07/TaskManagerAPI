@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    image: taskmanager-app:latest
+    container_name: taskmanager-app
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://host.docker.internal:5432/task-manager
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=Anish123@
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
