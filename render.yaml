@@ -1,27 +1,27 @@
 databases:
-  - name: taskflow-db
-    databaseName: taskflow
-    user: taskflow
+  - name: taskmanager-db
+    databaseName: taskmanager
+    user: taskmanager
     plan: free
 
 services:
   - type: web
-    name: taskflow-api
+    name: taskmanager-api
     env: docker
     plan: free
     healthCheckPath: /tasks
     envVars:
       - key: SPRING_DATASOURCE_URL
         fromDatabase:
-          name: taskflow-db
+          name: taskmanager-db
           property: connectionString
       - key: SPRING_DATASOURCE_USERNAME
         fromDatabase:
-          name: taskflow-db
+          name: taskmanager-db
           property: user
       - key: SPRING_DATASOURCE_PASSWORD
         fromDatabase:
-          name: taskflow-db
+          name: taskmanager-db
           property: password
       - key: SPRING_JPA_HIBERNATE_DDL_AUTO
         value: update
