@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.springframework.web.service.annotation.GetExchange;
 
 @Entity
+@Table(name = "users")
 @Getter
 @Setter
 public class User {
