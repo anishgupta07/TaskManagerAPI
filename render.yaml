@@ -32,3 +32,5 @@ services:
           property: password
       - key: SPRING_JPA_HIBERNATE_DDL_AUTO
         value: update
+      - key: DB_SSL_PARAM
+        value: "?sslmode=require"
