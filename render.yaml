@@ -9,7 +9,6 @@ services:
     name: taskmanager-api
     env: docker
     plan: free
-    healthCheckPath: /tasks
     envVars:
       - key: SPRING_DATASOURCE_URL
         fromDatabase:
