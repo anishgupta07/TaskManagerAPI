@@ -10,27 +10,9 @@ services:
     env: docker
     plan: free
     envVars:
-      - key: DB_HOST
+      - key: DATABASE_URL
         fromDatabase:
           name: taskmanager-db
-          property: host
-      - key: DB_PORT
-        fromDatabase:
-          name: taskmanager-db
-          property: port
-      - key: DB_NAME
-        fromDatabase:
-          name: taskmanager-db
-          property: database
-      - key: SPRING_DATASOURCE_USERNAME
-        fromDatabase:
-          name: taskmanager-db
-          property: user
-      - key: SPRING_DATASOURCE_PASSWORD
-        fromDatabase:
-          name: taskmanager-db
-          property: password
+          property: connectionString
       - key: SPRING_JPA_HIBERNATE_DDL_AUTO
         value: update
-      - key: DB_SSL_PARAM
-        value: "?sslmode=require"
